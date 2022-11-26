@@ -1,0 +1,155 @@
+<template>
+   <div class="container">
+      <nav class="navbar navbar-expand-lg">
+         <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+         >
+            <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <router-link to="/home" class="nav-link">
+                     <i class="fa-solid fa-house"></i>
+                  </router-link>
+               </li>
+               <li class="nav-item dropdown">
+                  <a
+                     class="nav-link"
+                     href="#"
+                     id="navbarDropdown"
+                     role="button"
+                     data-toggle="dropdown"
+                     aria-haspopup="true"
+                     aria-expanded="false"
+                  >
+                     Chuyên mục
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                     <div class="column col-lg-2">
+                        <ul>
+                           <li>
+                              <a class="dropdown-item" href="">LapTop</a>
+                           </li>
+                           <li>
+                              <a class="dropdown-item" href="#">PC</a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Liên hệ</a>
+               </li>
+               <li class="nav-item">
+                  <router-link to="/cart" class="nav-link">
+                     Giỏ hàng
+                     <i class="fa-solid fa-cart-shopping"></i>
+                     ({{ carts.length }})
+                  </router-link>
+               </li>
+               <li class="nav-item" v-if="this.local_user.role != ''">
+                  <router-link to="/" class="nav-link" @click="handleLogout">
+                     Đăng xuất
+                     <i class="fa-solid fa-right-from-bracket"></i>
+                  </router-link>
+               </li>
+            </ul>
+         </div>
+      </nav>
+   </div>
+</template>
+
+<script>
+export default {
+   data() {
+      return {
+         local_user: {
+            role: "",
+         },
+         carts: {},
+      };
+   },
+   methods: {
+      handleLogout() {
+         localStorage.removeItem("user_login");
+      },
+   },
+   mounted() {
+      const user = JSON.parse(localStorage.getItem("user_login"));
+      this.local_user = user;
+      const listLoalCart = JSON.parse(localStorage.getItem("cart") ?? "[]");
+      this.carts = listLoalCart;
+   },
+};
+</script>
+
+<style>
+.container {
+   margin: 0 auto;
+}
+.container-fluid {
+   padding: 0 0;
+}
+.navbar {
+   border-top: 1px solid #d6d6d6;
+   border-bottom: 3px solid #d6d6d6;
+   border-right: 0;
+   border-left: 0;
+}
+.navbar .nav-item {
+   color: #fff;
+   position: relative;
+}
+.navbar .nav-item a {
+   font-family: "Open Sans", sans-serif;
+   color: #555 !important;
+   text-align: left;
+   font-size: 16px;
+}
+.navbar .nav-item a:hover {
+   color: #0088ff !important;
+   background-color: #d6d6d6;
+}
+.nav-item ul li a {
+   display: flex;
+   text-align: left;
+   /* padding-left: 0;
+    padding-bottom: 0; */
+}
+.dropdown-menu {
+   width: 1031px;
+   display: none;
+   position: absolute;
+   background: #fff;
+   z-index: 1;
+   border-top: 3px solid #3e7cb4;
+   border-bottom: 0 none;
+   border-left: 0 none;
+   border-right: 0 none;
+   font-size: 16px;
+   padding: 10px 0;
+   margin-top: 0;
+   margin-left: -34px;
+   border-radius: 0%;
+}
+.dropdown-menu ul {
+   position: relative;
+   z-index: 500;
+   left: -15px;
+   right: 0;
+   list-style: none;
+   padding-left: 0px;
+   margin-left: 0;
+}
+.nav-item:hover .dropdown-menu {
+   display: block;
+}
+</style>
