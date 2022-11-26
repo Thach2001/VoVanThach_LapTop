@@ -1,16 +1,16 @@
 <template>
    <div class="container">
       <div class="product-list">
-         <div class="pricing-header px-3 py-3 pr-3 mx-auto float-left">
+         <div class="px-3 py-3 pr-3 mx-auto float-left">
             <button type="button" class="btn btn-info">
-               <router-link to="/user/admin" class="button-add">
+               <router-link to="/admin" class="button-add">
                   <i class="fa-solid fa-circle-left"></i>
                   Quay lại
                </router-link>
             </button>
          </div>
          <form
-            class="pricing-header px-3 py-3 pr-3 mx-auto float-right form-inline my-2 my-lg-0"
+            class="px-3 py-3 pr-3 mx-auto float-left form-inline my-2 my-lg-0"
          >
             <input
                class="form-control mr-sm-2"
@@ -23,6 +23,16 @@
                <i class="fas fa-search"></i>
             </button>
          </form>
+         <div class="px-3 py-3 mx-auto float-right">
+            <button
+               type="button"
+               class="btn btn-danger"
+               @click="removeAllUsers"
+            >
+               <i class="fas fa-trash"></i>
+               Xóa tất cả
+            </button>
+         </div>
          <div class="container">
             <table class="table table-bordered table-striped">
                <thead>
@@ -35,7 +45,7 @@
                   </tr>
                </thead>
                <div v-if="filteredUsersCount > 0"></div>
-               <p class="non-user" v-else>Không có sản phẩm nào</p>
+               <p class="non-user" v-else>Không có tài khoản nào</p>
                <tbody class="text-center">
                   <tr :key="index" v-for="(user, index) in filteredUsers">
                      <th>{{ user.role }}</th>
@@ -98,6 +108,17 @@ export default {
          if (confirm("Bạn muốn xóa Tài khoản này?")) {
             try {
                await UserService.delete(UserId);
+               this.$router.push({ name: "user.list" });
+               this.getAllUser();
+            } catch (error) {
+               console.log(error);
+            }
+         }
+      },
+      async removeAllUsers() {
+         if (confirm("Bạn muốn xóa tất cả Tài khoản?")) {
+            try {
+               await UserService.deleteAll();
                this.$router.push({ name: "user.list" });
                this.getAllUser();
             } catch (error) {

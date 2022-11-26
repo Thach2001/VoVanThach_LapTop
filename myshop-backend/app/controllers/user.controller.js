@@ -29,6 +29,7 @@ exports.login = async (req, res, next) => {
         const document = await userService.login(req.body);
         const data = {
             id: document[0]._id,
+            name: document[0].name,
             role: document[0].role,
             createAt: document[0].createdAt,
         }

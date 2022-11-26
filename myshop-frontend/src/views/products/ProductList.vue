@@ -1,7 +1,7 @@
 <template>
    <div class="product-list">
       <form
-         class="pricing-header px-3 py-3 pr-3 mx-auto float-right form-inline my-2 my-lg-0"
+         class="pricing-header px-3 py-3 pr-3 mx-auto float-left form-inline my-2 my-lg-0"
       >
          <input
             class="form-control mr-sm-2"
@@ -14,7 +14,17 @@
             <i class="fas fa-search"></i>
          </button>
       </form>
-      <div class="pricing-header px-3 py-3 pr-3 mx-auto float-left">
+      <div class="pricing-header px-3 py-3 pr-3 mx-auto float-right">
+         <button
+            type="button"
+            class="btn btn-danger"
+            @click="removeAllProducts"
+         >
+            <i class="fas fa-trash"></i>
+            Xóa tất cả
+         </button>
+      </div>
+      <div class="pricing-header px-3 py-3 pr-3 mx-auto float-right">
          <button type="button" class="btn btn-success">
             <router-link to="/product/create" class="button-add">
                <i class="fas fa-plus"></i>
@@ -22,7 +32,6 @@
             </router-link>
          </button>
       </div>
-
       <div class="container">
          <table class="table table-bordered table-striped table-sm">
             <thead>
@@ -121,7 +130,18 @@ export default {
          if (confirm("Bạn muốn xóa Sản phẩm này?")) {
             try {
                await ProductService.delete(productId);
-               this.$router.push({ name: "user.admin" });
+               this.$router.push({ name: "admin" });
+               this.getAllProduct();
+            } catch (error) {
+               console.log(error);
+            }
+         }
+      },
+      async removeAllProducts() {
+         if (confirm("Bạn muốn xóa tất cả Liên hệ?")) {
+            try {
+               await ProductService.deleteAll();
+               this.$router.push({ name: "admin" });
                this.getAllProduct();
             } catch (error) {
                console.log(error);
@@ -166,7 +186,7 @@ a {
    padding-top: 40px;
 }
 .non-product {
-   margin-left: 150px;
+   margin-left: 10px;
    margin-top: 15px;
    font-size: 20px;
    font-weight: bold;

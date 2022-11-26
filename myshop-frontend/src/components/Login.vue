@@ -110,7 +110,7 @@ export default {
             if (userLogin.role === "user") {
                this.$router.push({ name: "home" });
             } else if (userLogin.role === "admin") {
-               this.$router.push({ name: "user.admin" });
+               this.$router.push({ name: "admin" });
             } else {
                alert("Xin lỗi! Bạn đã nhập sai email hoặc mật khẩu!");
             }

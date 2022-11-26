@@ -3,7 +3,7 @@
       <div class="product-info">
          <div class="pricing-header px-3 py-3 pr-3 mx-auto text-center">
             <button type="button" class="btn btn-info">
-               <router-link to="/user/admin" class="button-add">
+               <router-link to="/admin" class="button-add">
                   <i class="fa-solid fa-circle-left"></i>
                   Quay lại
                </router-link>
@@ -166,14 +166,14 @@ export default {
                      this.$route.params.id,
                      this.product
                   );
-                  this.$router.push({ name: "user.admin" });
+                  this.$router.push({ name: "admin" });
                } catch (error) {
                   console.log(error);
                }
             } else {
                try {
                   await ProductService.create(this.product);
-                  this.$router.push({ name: "user.admin" });
+                  this.$router.push({ name: "admin" });
                } catch (error) {
                   console.log(error);
                }

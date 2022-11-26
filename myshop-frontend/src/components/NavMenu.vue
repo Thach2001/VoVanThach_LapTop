@@ -55,10 +55,19 @@
                      ({{ carts.length }})
                   </router-link>
                </li>
-               <li class="nav-item" v-if="this.local_user.role != ''">
+               <li class="nav-item user_name" v-if="this.local_user.role != ''">
                   <router-link to="/" class="nav-link" @click="handleLogout">
-                     Đăng xuất
-                     <i class="fa-solid fa-right-from-bracket"></i>
+                     <b>{{ this.local_user.name }}</b>
+                     <button class="btn btn-primary logout-btn">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                     </button>
+                  </router-link>
+               </li>
+               <li class="nav-item" v-if="this.local_user.role === 'admin'">
+                  <router-link to="/admin" class="nav-link">
+                     <button class="btn btn-primary admin-btn">
+                        <i class="fa-solid fa-user"></i>
+                     </button>
                   </router-link>
                </li>
             </ul>
@@ -71,9 +80,7 @@
 export default {
    data() {
       return {
-         local_user: {
-            role: "",
-         },
+         local_user: {},
          carts: {},
       };
    },
@@ -151,5 +158,22 @@ export default {
 }
 .nav-item:hover .dropdown-menu {
    display: block;
+}
+.user_name {
+   margin-left: 492px;
+   text-transform: uppercase;
+}
+.logout-btn {
+   width: 30px;
+   height: auto;
+   padding: 0px !important;
+   margin-top: -5px;
+   margin-left: 5px;
+}
+.admin-btn {
+   width: 30px;
+   height: auto;
+   padding: 0px !important;
+   margin-top: -5px;
 }
 </style>

@@ -16,8 +16,8 @@ const routes = [
     },
     //Admin
     {
-        path: "/user/admin",
-        name: "user.admin",
+        path: "/admin",
+        name: "admin",
         component: () => import('../views/AdminManager.vue'),
     },
     //Home

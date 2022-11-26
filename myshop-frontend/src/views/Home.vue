@@ -1,25 +1,25 @@
 <template>
-  <div class="wrapper">
-    <div class="header">
-      <div class="nav-menu">
-        <NavMenu />
+   <div class="wrapper">
+      <div class="header">
+         <div class="nav-menu">
+            <NavMenu />
+         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="slider">
-        <BaseSlider />
+      <div class="container">
+         <div class="slider">
+            <BaseSlider />
+         </div>
+         <div class="listcategory">
+            <ProductScreen />
+         </div>
       </div>
-      <div class="listcategory">
-        <ProductScreen />
+      <div class="container">
+         <div class="slider-brand">
+            <SideBrand />
+         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="slider-brand">
-        <SideBrand />
-      </div>
-    </div>
-    <BaseFooter />
-  </div>
+      <BaseFooter />
+   </div>
 </template>
 
 <script>
@@ -30,44 +30,43 @@ import SideBrand from "../components/SideBrand.vue";
 import BaseFooter from "../components/BaseFooter.vue";
 
 export default {
-  name: "Home",
-  components: {
-    NavMenu,
-    BaseSlider,
-    ProductScreen,
-    SideBrand,
-    BaseFooter,
-  },
+   name: "Home",
+   components: {
+      NavMenu,
+      BaseSlider,
+      ProductScreen,
+      SideBrand,
+      BaseFooter,
+   },
 };
 </script>
 
 <style scoped>
 .wrapper {
-  max-width: 100%;
-  background: #fff;
-  font-family: "Open Sans", sans-serif;
+   max-width: 100%;
+   background: #fff;
+   font-family: "Open Sans", sans-serif;
 }
 .header {
-  width: 100%;
-  /* height: 210px; */
-  height: auto;
+   width: 100%;
+   height: auto;
 }
 .container {
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+   width: 100%;
+   height: auto;
+   margin-top: 20px;
+   margin-bottom: 20px;
 }
 .slider {
-  width: 100%;
-  height: auto;
+   width: 100%;
+   height: auto;
 }
 .listcategory {
-  width: 100%;
-  height: auto;
+   width: 100%;
+   height: auto;
 }
 .slider-brand {
-  width: 100%;
-  height: 150px;
+   width: 100%;
+   height: 150px;
 }
 </style>

@@ -96,7 +96,6 @@ export default {
          }
       },
       async addProductToCart(index) {
-         console.log(this.products);
          const saveLocalCart = JSON.parse(localStorage.getItem("cart") ?? "[]");
          for (const item of saveLocalCart) {
             if (item._id === this.products[index]._id) {
