@@ -141,7 +141,7 @@ export default {
 .container {
    background-color: #fff;
    padding-bottom: auto;
-   margin-top: 15px;
+   margin-top: 10px;
 }
 .product-list {
    padding-bottom: 10px;

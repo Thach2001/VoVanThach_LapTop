@@ -102,7 +102,9 @@ export default {
                item.amount++;
                const saveobject = JSON.stringify(saveLocalCart);
                localStorage.setItem("cart", saveobject);
-               alert("Giỏ hàng đã được cập nhật");
+               alert(
+                  `Số lượng sản phẩm ${this.products[index].name} đã được cập nhật`
+               );
                return;
             }
          }
@@ -117,7 +119,9 @@ export default {
          saveLocalCart.push(temp);
          const saveobject = JSON.stringify(saveLocalCart);
          localStorage.setItem("cart", saveobject);
-         alert("Sản phẩm vừa được thêm vào giỏ hàng");
+         alert(
+            `Sản phẩm ${this.products[index].name} vừa được thêm vào giỏ hàng`
+         );
       },
    },
 

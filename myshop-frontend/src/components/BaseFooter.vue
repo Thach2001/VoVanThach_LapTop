@@ -2,8 +2,8 @@
    <footer id="footer">
       <div class="first-footer">
          <div class="container">
-            <div class="row">
-               <div class="contact col-lg-4">
+            <div class="d-flex justify-content-between">
+               <div class="contact">
                   <h5>Thông tin liên hệ</h5>
                   <ul>
                      <li class="address">
@@ -22,14 +22,42 @@
                      </li>
                   </ul>
                </div>
-               <div class="column col-lg-4">
+               <div class="column">
                   <h5>Dịch vụ khách hàng</h5>
                   <ul>
                      <li>
-                        <a href="">Liên hệ với tôi</a>
+                        <router-link to="/contact">Liên hệ với tôi</router-link>
                      </li>
                      <li>
-                        <a href="">Về tôi</a>
+                        <router-link to="/contact">Về tôi</router-link>
+                     </li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <h5>Mạng xã hội</h5>
+                  <ul>
+                     <li>
+                        <i class="fa-brands fa-facebook"></i>
+                        <a href="https://www.facebook.com"> Facebook</a>
+                     </li>
+                     <li>
+                        <i class="fa-brands fa-twitter"></i>
+                        <a href="https://www.twitter.com"> Twitter</a>
+                     </li>
+                     <li>
+                        <i class="fa-brands fa-instagram"></i>
+                        <a href="https://www.instagram.com"> Instagram</a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="column">
+                  <h5>Thanh toán</h5>
+                  <ul>
+                     <li>
+                        <a href="">Trực tiếp</a>
+                     </li>
+                     <li>
+                        <a href="">Chuyển khoản</a>
                      </li>
                   </ul>
                </div>
@@ -50,7 +78,7 @@ export default {};
 .first-footer {
    background-color: #f3f3f3;
    color: #444;
-   padding: 20px 0px 15px 20px;
+   padding: 20px;
 }
 #footer h5 {
    font-size: 18px;

@@ -46,13 +46,19 @@
                   </div>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#">Liên hệ</a>
+                  <router-link to="/contact" class="nav-link">
+                     Liên hệ
+                  </router-link>
                </li>
                <li class="nav-item">
                   <router-link to="/cart" class="nav-link">
                      Giỏ hàng
                      <i class="fa-solid fa-cart-shopping"></i>
-                     ({{ carts.length }})
+                  </router-link>
+               </li>
+               <li class="nav-item count_products-cart">
+                  <router-link to="/cart">
+                     {{ carts.length }}
                   </router-link>
                </li>
                <li class="nav-item user_name" v-if="this.local_user.role != ''">
@@ -66,7 +72,7 @@
                <li class="nav-item" v-if="this.local_user.role === 'admin'">
                   <router-link to="/admin" class="nav-link">
                      <button class="btn btn-primary admin-btn">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-people-roof"></i>
                      </button>
                   </router-link>
                </li>
@@ -128,8 +134,6 @@ export default {
 .nav-item ul li a {
    display: flex;
    text-align: left;
-   /* padding-left: 0;
-    padding-bottom: 0; */
 }
 .dropdown-menu {
    width: 1031px;
@@ -160,7 +164,7 @@ export default {
    display: block;
 }
 .user_name {
-   margin-left: 492px;
+   margin-left: 550px;
    text-transform: uppercase;
 }
 .logout-btn {
@@ -175,5 +179,9 @@ export default {
    height: auto;
    padding: 0px !important;
    margin-top: -5px;
+}
+.count_products-cart {
+   left: -8px;
+   top: 2px;
 }
 </style>

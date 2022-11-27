@@ -5,13 +5,13 @@ const routes = [
     //Login
     {
         path: "/",
-        name: "user.login",
+        name: "login",
         component: () => import('../components/Login.vue'),
     },
     //Register
     {
-        path: "/user/register",
-        name: "user.register",
+        path: "/register",
+        name: "register",
         component: () => import('../components/Register.vue'),
     },
     //Admin
@@ -26,6 +26,7 @@ const routes = [
         name: "home",
         component: Home,
     },
+    //Quản lý sản phẩm
     {
         path: "/product",
         name: "product.list",
@@ -41,6 +42,7 @@ const routes = [
         name: "product.edit",
         component: () => import('../views/products/ProductForm.vue'),
     },
+    //Quản lý tài khoản
     {
         path: "/user",
         name: "user.list",
@@ -51,11 +53,17 @@ const routes = [
         name: "error",
         component: () => import('../views/Error.vue'),
     },
+    //Liên hệ
+    {
+        path: "/contact",
+        name: "contact",
+        component: () => import('../components/Contact.vue'),
+    },
     
     //Giỏ hàng
     {
         path: "/cart",
-        name: "user.cart",
+        name: "cart",
         component: () => import('../components/Cart.vue'),
     },
 ];

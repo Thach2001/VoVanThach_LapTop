@@ -33,7 +33,7 @@ exports.login = async (req, res, next) => {
             role: document[0].role,
             createAt: document[0].createdAt,
         }
-        if (document[0].email === req.body.email && document[0].password === req.body.password) {
+        if ((document[0].email === req.body.email) && (document[0].password === req.body.password)) {
             return res.send(data);
         }
         return res.send({});

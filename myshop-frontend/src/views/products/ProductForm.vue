@@ -200,7 +200,7 @@ export default {
 .container {
    background-color: #fff;
    padding-bottom: 150px;
-   margin-top: 15px;
+   margin-top: 10px;
 }
 a {
    text-decoration: none;

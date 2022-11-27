@@ -112,7 +112,6 @@ export default {
    background: #fff;
    font-family: "Open Sans", sans-serif;
    padding-bottom: 50px;
-   margin-top: 20px;
 }
 .header {
    width: 100%;
@@ -121,7 +120,7 @@ export default {
 }
 .container {
    background-color: #fff;
-   margin-top: 15px;
+   margin-top: 10px;
 }
 
 .product-list {

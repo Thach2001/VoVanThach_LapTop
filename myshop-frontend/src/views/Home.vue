@@ -54,7 +54,7 @@ export default {
 .container {
    width: 100%;
    height: auto;
-   margin-top: 20px;
+   margin-top: 10px;
    margin-bottom: 20px;
 }
 .slider {

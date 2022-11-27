@@ -55,8 +55,8 @@
             <div class="card-footer">
                <div class="d-flex justify-content-center links">
                   <p>
-                     Nếu chưa có tài khoản.
-                     <router-link to="/user/register">Đăng ký ngay</router-link>
+                     Nếu bạn chưa có tài khoản!
+                     <router-link to="/register">ĐĂNG KÝ</router-link>
                   </p>
                </div>
             </div>
@@ -104,7 +104,6 @@ export default {
       async login() {
          if (this.validate()) {
             const userLogin = await UserService.login(this.user);
-            // console.log(userLogin)
             const local_login = JSON.stringify(userLogin);
             localStorage.setItem("user_login", local_login);
             if (userLogin.role === "user") {
@@ -125,7 +124,7 @@ export default {
    background-color: rgb(143, 143, 243);
    padding-top: 80px;
    padding-bottom: 180px;
-   margin-top: 20px;
+   margin-top: 10px;
 }
 .card {
    height: 370px;

@@ -94,7 +94,7 @@ export default {
    text-align: left;
 }
 .user_name {
-   margin-left: 540px;
+   margin-left: 620px;
    text-transform: uppercase;
 }
 .logout-btn {

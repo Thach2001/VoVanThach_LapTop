@@ -92,7 +92,7 @@
                <div class="d-flex justify-content-center links">
                   <p>
                      Đăng nhập ngay!
-                     <router-link to="/">Đăng nhập</router-link>
+                     <router-link to="/">ĐĂNG NHẬP</router-link>
                   </p>
                </div>
             </div>
@@ -144,7 +144,7 @@ export default {
             this.errors.password = "Mật khẩu là bắt buộc";
             isValid = false;
          }
-         if (!this.user.repassword) {
+         if (this.user.repassword != this.user.password) {
             this.errors.repassword = "Mật khẩu chưa đúng";
             isValid = false;
          }
@@ -171,10 +171,10 @@ export default {
    background-color: rgb(143, 143, 243);
    padding-top: 80px;
    padding-bottom: 100px;
-   margin-top: 20px;
+   margin-top: 10px;
 }
 .card {
-   height: 450px;
+   height: 520px;
    margin-top: auto;
    margin-bottom: auto;
    width: 400px;
